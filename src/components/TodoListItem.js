@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   MdCheckBoxOutlineBlank,
   MdCheckBox,
@@ -6,7 +7,7 @@ import {
 import cn from 'classnames';
 import './TodoListItem.scss';
 
-export default function TodoListItem({ todo, onRemove, onToggle }) {
+const TodoListItem = ({ todo, onRemove, onToggle }) => {
   const { id, text, checked } = todo;
 
   return (
@@ -20,4 +21,6 @@ export default function TodoListItem({ todo, onRemove, onToggle }) {
       </div>
     </div>
   );
-}
+};
+// todo, onRemove, onToggle 이 바뀌지 않으면 리렌더링 하지 않음
+export default React.memo(TodoListItem);
